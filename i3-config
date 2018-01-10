@@ -1,0 +1,185 @@
+# Deant's i3-config
+# i3 config file (v4.0)
+
+	set $tag1 "1:"
+	set $tag2 "2:"
+	set $tag3 "3:"
+	set $tag4 "4:"
+	set $tag5 "5:"
+	set $tag6 "6:"
+	set $tag7 "7:"
+	set $tag8 "8:"
+	set $tag9 "9:"
+	set $tag10 "10:"
+
+# Mod4 key setup  (Super or Win key ) as main modificator:
+	set $mod Mod4
+
+# alt key setup as secondary modificator (for some of my shortcuts):
+	set $alt Mod1
+
+# Windows tittle fonts. ISO 10646 = Unicode
+	font pango:Noto Sans Regular, Icons 8
+
+# Use the mouse+$mod for move floating windows:
+	floating_modifier $mod
+
+# Open a terminal
+	bindsym $mod+Return exec xfce4-terminal
+
+# Close (kill) the focused window:
+	bindsym $mod+Shift+q kill
+
+# Open the launcher menu 'dmenu' (package suckless-tools)
+	bindsym $mod+d exec --no-startup-id dmenu_run
+
+# Move the windows focus with the arrow keys:
+	bindsym $mod+Left focus left
+	bindsym $mod+Down focus down
+	bindsym $mod+Up focus up
+	bindsym $mod+Right focus right
+
+# Move the windows placewment with the arrow keys:
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+
+# Split in horizontal orientation
+	bindsym $mod+h split h
+
+# Split in vertival orientation
+	bindsym $mod+v split v
+
+# Enter in full screen mode for the focused window:
+bindsym $mod+Shift+f fullscreen
+
+# change the window behaivour:
+	bindsym $mod+s layout stacking
+	bindsym $mod+z layout tabbed
+	bindsym $mod+e layout default
+
+# Swith between tiling or floating display:
+	bindsym $mod+Shift+space floating toggle
+
+# Give focus to parent container:
+	bindsym $mod+a focus parent
+
+# Switch to a workspace:
+	bindsym $mod+1 workspace $tag1 
+	bindsym $mod+2 workspace $tag2
+	bindsym $mod+3 workspace $tag3
+	bindsym $mod+4 workspace $tag4
+	bindsym $mod+5 workspace $tag5
+	bindsym $mod+6 workspace $tag6
+	bindsym $mod+7 workspace $tag7
+	bindsym $mod+8 workspace $tag8
+	bindsym $mod+9 workspace $tag9
+	bindsym $mod+0 workspace $tag10
+
+# Move the active to window to a specific workspace:
+	bindsym $mod+Shift+1 move container to workspace $tag1
+	bindsym $mod+Shift+2 move container to workspace $tag2
+	bindsym $mod+Shift+3 move container to workspace $tag3
+	bindsym $mod+Shift+4 move container to workspace $tag4
+	bindsym $mod+Shift+5 move container to workspace $tag5
+	bindsym $mod+Shift+6 move container to workspace $tag6
+	bindsym $mod+Shift+7 move container to workspace $tag7
+	bindsym $mod+Shift+8 move container to workspace $tag8
+	bindsym $mod+Shift+9 move container to workspace $tag9
+	bindsym $mod+Shift+0 move container to workspace $tag10
+
+# Reload the i3 setup:
+	bindsym $mod+Shift+C reload
+
+# Reboot i3wm
+	bindsym $mod+Shift+R restart
+
+# Quit i3 (close your X session):
+	bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'Quit i3wm ?' -b '' 'i3-msg exit'"
+
+# resize the window (you can use the mouse too):
+	mode "resize" {
+
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym m resize grow width 10 px or 10 ppt
+
+        bindsym 113 resize shrink width 10 px or 10 ppt
+        bindsym 116 resize grow height 10 px or 10 ppt
+        bindsym 111 resize shrink height 10 px or 10 ppt
+        bindsym 114 resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# i3bar show the workspaces 
+bar {
+        # run i3status in i3bar
+		status_command i3status
+        # i3 bar position (top | bottom)
+		position bottom
+        # the system-tray remains on the main screen
+		tray_output primary
+		font pango:Source Sans Pro,FontAwesome 9
+		separator_symbol ""
+		strip_workspace_numbers yes
+
+# Workspace names color definition in i3bar:
+    colors {
+#		placement			bordure		arrière plan	texte
+#		focused_workspace	#FFFFFF		#6495ED			#FFFFFF
+#		focused_windows		#6495ED
+#		font color in i3status:
+	  statusline  #EEEEEE
+
+	  }
+}
+
+# Borderless windows
+
+new_float pixel 1
+new_window pixel 1
+
+# Automatic placement for every package window in his respective workspace
+
+assign [class="(?i)Firefox"] 1:
+assign [class="(?i)xfce4-terminal"] 2:
+assign [class="(?i)thunar"] 3:
+assign [class="(?i)thunderbird"] 4:
+assign [class="(?i)gedit"] 5:
+assign [class="(?i)geany"] 6:
+assign [class="(?i)feh"] 7:
+
+# Window borders colors
+
+# class							border	backgr.	text	indicator	child_border
+	client.focused				#6495ED	#148E73 #000000	#6495ED		#6495ED
+	client.focused_inactive		#333333	#5f676a	#ffffff #484e50		#5f676a
+	client.unfocused			#4747B2	#C2F2D0	#888888 #4747B2		#C2F2D0
+	client.urgent				#E42F0C	#E42F0C #ffffff #E42F0C		#E42F0C
+	client.placeholder			#000000	#0c0c0c #ffffff #000000		#0c0c0c
+	client.background			#ffffff
+
+# Usefull shortcuts
+
+bindsym $mod+l exec --no-startup-id "/bin/lock"
+bindsym $mod+m bar mode toggle
+
+# Automatic load usefull packages
+
+exec --no-startup-id thunderbird
+exec --no-startup-id nitrogen --restore
+exec compton
+exec --no-startup-id xbindkeys -p
+exec xset b off
+
+# Launch some packages using shortcuts
+
+bindsym $mod+f exec --no-startup-id firefox-developer-edition
+bindsym $mod+t exec --no-startup-id thunar
+bindsym $mod+g exec --no-startup-id gedit
