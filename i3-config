@@ -1,4 +1,4 @@
-# Deant's i3-config
+# Nabuchodnozzar's i3-config
 # i3 config file (v4.0)
 
 	set $tag1 "1:"
@@ -131,8 +131,8 @@ bar {
 
 # Workspace names color definition in i3bar:
     colors {
-#		placement			bordure		arrière plan	texte
-#		focused_workspace	#FFFFFF		#6495ED			#FFFFFF
+#		placement		borders		background	text
+#		focused_workspace	#FFFFFF		#6495ED		#FFFFFF
 #		focused_windows		#6495ED
 #		font color in i3status:
 	  statusline  #EEEEEE
@@ -157,13 +157,13 @@ assign [class="(?i)feh"] 7:
 
 # Window borders colors
 
-# class							border	backgr.	text	indicator	child_border
-	client.focused				#6495ED	#148E73 #000000	#6495ED		#6495ED
+# class					border	backgr.	text	indicator	child_border
+	client.focused			#6495ED	#148E73 #000000	#6495ED		#6495ED
 	client.focused_inactive		#333333	#5f676a	#ffffff #484e50		#5f676a
-	client.unfocused			#4747B2	#C2F2D0	#888888 #4747B2		#C2F2D0
-	client.urgent				#E42F0C	#E42F0C #ffffff #E42F0C		#E42F0C
-	client.placeholder			#000000	#0c0c0c #ffffff #000000		#0c0c0c
-	client.background			#ffffff
+	client.unfocused		#4747B2	#C2F2D0	#888888 #4747B2		#C2F2D0
+	client.urgent			#E42F0C	#E42F0C #ffffff #E42F0C		#E42F0C
+	client.placeholder		#000000	#0c0c0c #ffffff #000000		#0c0c0c
+	client.background		#ffffff
 
 # Usefull shortcuts
 
