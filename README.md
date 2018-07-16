@@ -6,4 +6,4 @@ The lock file should be places in "/bin" and you should use "chmod +x" to run it
 
 More info here : https://i3wm.org/docs/
 
-I suggest you ton install awesome-terminal-fonts ;-)
+I suggest you to install awesome-terminal-fonts ;-)
